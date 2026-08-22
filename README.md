@@ -1,96 +1,52 @@
-# Secure Data Infrastructure Lab
+# Virtualization
 
-Design, deployment, networking, containerization, security hardening, and validation of a cross-platform data infrastructure using Linux, Windows Server, Docker, JupyterLab, and Python.
+This section documents the virtualization layer used to build the Secure Data Infrastructure Lab.
 
-## Project Overview
+The environment was deployed using Oracle VirtualBox as a Type 2 hypervisor running two virtual server nodes:
 
-This project documents the progressive development of a virtual data infrastructure built throughout an academic operating systems laboratory.
-
-The environment evolved from basic server virtualization and process monitoring into a cross-platform architecture composed of Ubuntu Server and Windows Server nodes, internal networking, routing, access control, containerized services, firewall hardening, and data analytics.
-
-The final environment provides a secured infrastructure capable of running JupyterLab inside Docker while maintaining controlled communication between Linux and Windows systems.
-
-## Architecture
-
-The laboratory environment includes:
-
-- Ubuntu Server as the primary infrastructure and application node
-- Windows Server as a secondary processing and administration node
-- Oracle VirtualBox for virtualization
-- NAT and internal virtual networks
-- Linux IP forwarding and NAT routing
-- Docker containerization
-- JupyterLab as the data science environment
-- SSH for remote administration
-- UFW and Windows Defender Firewall for host-level security
-- Python, Pandas, and Matplotlib for application validation
-
-## Technologies
-
-- Linux / Ubuntu Server
+- Ubuntu Server
 - Windows Server
-- PowerShell
-- Bash / Linux CLI
-- Oracle VirtualBox
-- TCP/IP
-- NAT
-- IP Forwarding
-- iptables
-- SSH
-- Docker
-- JupyterLab
-- Python
-- Pandas
-- Matplotlib
-- UFW
-- Windows Defender Firewall
-- NTFS ACLs
-- Git / GitHub
 
-## Project Development
+These virtual machines were used to simulate a small cross-platform infrastructure environment in which networking, process management, access control, containerization, firewall configuration, SSH administration, and data analytics could be tested.
 
-### Phase 1 — Virtual Infrastructure
-Deployment and administration of Linux and Windows Server virtual machines and comparison of operating system architectures.
+## Virtual Machines
 
-### Phase 2 — Process and Resource Management
-Monitoring processes and system resources using Linux CLI tools and Windows graphical/command-line utilities.
+### Ubuntu Server
 
-### Phase 3 — Access Control and Permissions
-Implementation and remediation of Linux file permissions and Windows NTFS access control lists.
+Ubuntu Server was used as the primary infrastructure node.
 
-### Phase 4 — Cross-Platform Networking
-Configuration of static addressing, internal networking, connectivity testing, IP forwarding, and NAT routing between Ubuntu and Windows.
+Its responsibilities included:
 
-### Phase 5 — Identity and Service Management
-Management of local users and deployment of containerized services using Docker.
+- Linux command-line administration
+- Internal network configuration
+- IP forwarding
+- NAT routing
+- Docker container hosting
+- JupyterLab deployment
+- SSH services
+- UFW firewall configuration
 
-### Phase 6 — Docker and JupyterLab
-Deployment of JupyterLab inside a Docker container and remote access from the Windows environment.
+### Windows Server
 
-### Phase 7 — Security Hardening
-Implementation of host-based firewall rules using UFW and Windows Defender Firewall while preserving required SSH, ICMP, and application traffic.
+Windows Server was used as the secondary node.
 
-### Phase 8 — Data Analytics Validation
-Validation of the secured infrastructure by executing Python workloads using Pandas and Matplotlib inside JupyterLab.
+Its responsibilities included:
 
-## Skills Demonstrated
+- PowerShell administration
+- Windows process management
+- Network connectivity validation
+- Windows Defender Firewall configuration
+- SSH client operations
+- Browser access to JupyterLab
 
-- Linux and Windows system administration
-- Virtual infrastructure deployment
-- Command-line administration
-- Network troubleshooting
-- Cross-platform networking
-- Access control and least privilege
-- Container deployment
-- Firewall configuration
-- SSH administration
-- Infrastructure troubleshooting
-- Data science environment deployment
+## Hypervisor
 
-## Documentation
+Oracle VirtualBox provided the virtualization layer used to host and isolate both server operating systems.
 
-Detailed architecture diagrams, configuration procedures, commands, screenshots, and technical evidence will be organized within this repository.
+The virtual environment allowed the project to reproduce a multi-node infrastructure without requiring separate physical servers.
 
-## Status
+## Evidence
 
-Portfolio documentation in progress.
+The following image confirms Windows Server running as a virtual machine inside Oracle VirtualBox:
+
+![Windows Server running in VirtualBox](../evidence/virtualization-windows-server-virtualbox.png)
