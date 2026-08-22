@@ -1,5 +1,7 @@
 # Architecture
 
+![Secure Data Infrastructure Architecture](architecture-secure-data-infrastructure.png)
+
 This section documents the logical architecture of the Secure Data Infrastructure Lab.
 
 The environment was built using Oracle VirtualBox with two server nodes:
