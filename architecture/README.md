@@ -1,19 +1,46 @@
 # Architecture
 
-This section documents the logical and virtual architecture of the Secure Data Infrastructure Lab.
+This section documents the logical architecture of the Secure Data Infrastructure Lab.
 
-It includes network topology diagrams, server roles, virtual machine relationships, network interfaces, service ports, and communication flows between the Ubuntu Server and Windows Server environments.
-
-## Components
+The environment was built using Oracle VirtualBox with two server nodes:
 
 - Ubuntu Server
 - Windows Server
-- Oracle VirtualBox
-- NAT network
-- Internal network
-- Docker
-- JupyterLab
-- SSH
-- Host-based firewalls
 
-Architecture diagrams and supporting documentation will be added as the project evidence is organized.
+Ubuntu Server acts as the primary infrastructure node and provides routing, NAT, SSH access, Docker services, JupyterLab, and host-based firewall protection.
+
+Windows Server acts as the secondary node and is used for connectivity testing, administration, PowerShell-based configuration, firewall validation, and remote access to JupyterLab.
+
+## Logical Topology
+
+```text
+Internet
+   |
+   v
+VirtualBox NAT Network
+   |
+   v
+Ubuntu Server
+192.168.50.1
+   |
+   +-- IP Forwarding
+   +-- NAT / iptables MASQUERADE
+   +-- UFW Firewall
+   +-- SSH Service
+   +-- Docker
+   |     |
+   |     └── JupyterLab
+   |          Port 8888
+   |
+   v
+Internal Network
+   |
+   v
+Windows Server
+192.168.50.2
+   |
+   +-- Windows Defender Firewall
+   +-- PowerShell Administration
+   +-- ICMP / Ping Validation
+   +-- SSH Client
+   +-- Browser Access to JupyterLab
