@@ -1,52 +1,163 @@
-# Virtualization
+# Secure Data Infrastructure Lab
 
-This section documents the virtualization layer used to build the Secure Data Infrastructure Lab.
+A cross-platform infrastructure lab focused on virtualization, Linux and Windows Server administration, networking, containerization, security hardening, remote administration, and data analytics.
 
-The environment was deployed using Oracle VirtualBox as a Type 2 hypervisor running two virtual server nodes:
+The project was developed progressively as a cumulative Operating Systems laboratory and evolved into a functional two-node environment using Ubuntu Server and Windows Server.
+
+## Architecture
+
+![Secure Data Infrastructure Architecture](architecture/architecture-secure-data-infrastructure.png)
+
+The environment consists of two virtualized server nodes hosted with Oracle VirtualBox:
+
+- **Ubuntu Server — 192.168.50.1**
+- **Windows Server — 192.168.50.2**
+
+Ubuntu Server provides routing, NAT, Docker services, JupyterLab, SSH, and host-based firewall protection.
+
+Windows Server provides PowerShell administration, connectivity validation, firewall controls, SSH client access, and remote browser access to JupyterLab.
+
+[View the full architecture documentation →](architecture/README.md)
+
+---
+
+## Technologies
 
 - Ubuntu Server
 - Windows Server
+- Oracle VirtualBox
+- Linux CLI / Bash
+- PowerShell
+- TCP/IP
+- NAT
+- IP Forwarding
+- iptables
+- SSH
+- UFW
+- Windows Defender Firewall
+- Docker
+- JupyterLab
+- Python
+- Pandas
+- Matplotlib
+- GitHub
 
-These virtual machines were used to simulate a small cross-platform infrastructure environment in which networking, process management, access control, containerization, firewall configuration, SSH administration, and data analytics could be tested.
+---
 
-## Virtual Machines
+## Project Modules
 
-### Ubuntu Server
+### 1. Virtualization
 
-Ubuntu Server was used as the primary infrastructure node.
+Deployment of Ubuntu Server and Windows Server as virtual machines using Oracle VirtualBox.
 
-Its responsibilities included:
+[View Virtualization →](virtualization/README.md)
 
-- Linux command-line administration
-- Internal network configuration
-- IP forwarding
-- NAT routing
-- Docker container hosting
-- JupyterLab deployment
-- SSH services
-- UFW firewall configuration
+### 2. Process Monitoring
 
-### Windows Server
+Cross-platform process and resource monitoring using Linux `top`, Windows Task Manager, process IDs, and command-line process management.
 
-Windows Server was used as the secondary node.
+[View Process Monitoring →](process-monitoring/README.md)
 
-Its responsibilities included:
+### 3. Access Control
 
-- PowerShell administration
-- Windows process management
-- Network connectivity validation
-- Windows Defender Firewall configuration
-- SSH client operations
-- Browser access to JupyterLab
+Identification and remediation of overly permissive Linux file permissions using `chmod` and the principle of least privilege.
 
-## Hypervisor
+[View Access Control →](access-control/README.md)
 
-Oracle VirtualBox provided the virtualization layer used to host and isolate both server operating systems.
+### 4. Networking
 
-The virtual environment allowed the project to reproduce a multi-node infrastructure without requiring separate physical servers.
+Configuration of the internal `192.168.50.0/24` network, IP forwarding, NAT with `iptables`, gateway configuration, and connectivity validation between Ubuntu Server, Windows Server, and external networks.
 
-## Evidence
+[View Networking →](networking/README.md)
 
-The following image confirms Windows Server running as a virtual machine inside Oracle VirtualBox:
+### 5. Docker & JupyterLab
 
-![Windows Server running in VirtualBox](../evidence/virtualization-windows-server-virtualbox.png)
+Deployment of JupyterLab inside a Docker container on Ubuntu Server and remote access from Windows Server through TCP port `8888`.
+
+[View Docker & JupyterLab →](docker-jupyter/README.md)
+
+### 6. Security Hardening
+
+Implementation of UFW, Windows Defender Firewall, controlled service exposure, ICMP validation, and SSH key-based authentication between Windows Server and Ubuntu Server.
+
+[View Security Hardening →](security-hardening/README.md)
+
+### 7. Data Analytics
+
+End-to-end validation of the infrastructure through Python, Pandas, DataFrames, Matplotlib, and data visualization inside the containerized JupyterLab environment.
+
+[View Data Analytics →](data-analytics/README.md)
+
+---
+
+## Key Technical Outcomes
+
+The completed environment demonstrates:
+
+- Cross-platform Linux and Windows Server administration
+- Multi-node virtual infrastructure
+- Internal network communication
+- Ubuntu-based routing and NAT
+- Docker container deployment
+- Remote JupyterLab access
+- Host-based firewall configuration
+- SSH key-based authentication
+- Process monitoring and administration
+- Linux permission hardening
+- Python-based analytics and visualization
+
+---
+
+## Selected Evidence
+
+### Ubuntu Routing and NAT
+
+![Ubuntu routing and NAT](evidence/networking-ubuntu-routing-nat.png)
+
+### Docker and JupyterLab
+
+![Docker JupyterLab deployment](evidence/docker-jupyter-container-port-8888.png)
+
+### Data Analytics
+
+![JupyterLab analytics validation](evidence/docker-jupyterlab-windows-access.png)
+
+---
+
+## Repository Structure
+
+```text
+secure-data-infrastructure-lab/
+│
+├── architecture/
+├── virtualization/
+├── process-monitoring/
+├── access-control/
+├── networking/
+├── docker-jupyter/
+├── security-hardening/
+├── data-analytics/
+├── evidence/
+└── README.md
+```
+
+---
+
+## Skills Demonstrated
+
+**Infrastructure:** VirtualBox, Ubuntu Server, Windows Server  
+**Networking:** TCP/IP, routing, NAT, IP forwarding, ICMP  
+**Security:** UFW, Windows Firewall, SSH keys, least privilege  
+**Containers:** Docker, JupyterLab  
+**Administration:** Bash, Linux CLI, PowerShell  
+**Data:** Python, Pandas, Matplotlib
+
+---
+
+## Project Context
+
+This repository presents selected technical documentation and evidence from a cumulative academic infrastructure project.
+
+The documentation has been reorganized as a technical portfolio to emphasize architecture, implementation decisions, troubleshooting, security controls, and validated results.
+
+Sensitive credentials, private keys, passwords, and unnecessary personal information are excluded.
